@@ -11,23 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Data;
-using System.Data.Linq;
-using Warehouse.Classes;
 
 namespace Warehouse
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Products.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Products : Window
     {
-        DataContext db = new DataContext(Properties.Settings.Default.conn);
-
-        public MainWindow()
+        public Products()
         {
             InitializeComponent();
-            updateGridOrders();
         }
 
         private void CBtheme_SelectionChanged(object sender, SelectionChangedEventArgs e) //выбор темы
@@ -55,24 +49,5 @@ namespace Warehouse
                 Application.Current.Resources.MergedDictionaries.Add(resourceDict);
             }
         }
-
-        private void updateGridOrders() //получение таблицы заказов из базы
-        {
-            DG_Orders.ItemsSource = db.GetTable<OrdersView>();
-        }
-
-        private void BtnUsers_Click(object sender, RoutedEventArgs e) //вызов окна клиентов
-        {
-            Clients c = new Clients();
-            c.Show();
-        }
-
-        private void BtnProducts_Click(object sender, RoutedEventArgs e) //вызов окна продукции
-        {
-            Products p = new Products();
-            p.Show();
-        }
-
-
     }
 }

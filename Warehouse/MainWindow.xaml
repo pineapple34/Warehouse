@@ -30,7 +30,6 @@
             <Label Content="Информация о клиенте"/>
             <Label x:Name="LblClientInfo"/>
         </StackPanel>
-        
 
         <StackPanel Grid.Column="1" Grid.RowSpan="2">
             <Expander Header="Действия над заказами">
@@ -39,13 +38,13 @@
                     <Label Content="Клиент"/>
                     <StackPanel Orientation="Horizontal">
                         <ComboBox x:Name="CBclient" Width="220"/>
-                        <Button x:Name="BtnUsers" Content="..." Width="30"/>
+                        <Button x:Name="BtnUsers" Content="..." Width="30" FontWeight="Bold" Click="BtnUsers_Click"/>
                     </StackPanel>
                     
                     <Label Content="Продукт"/>
                     <StackPanel Orientation="Horizontal">
                         <ComboBox x:Name="CBproduct" Width="220"/>
-                        <Button x:Name="BtnProducts" Content="..." Width="30"/>
+                        <Button x:Name="BtnProducts" Content="..." Width="30" FontWeight="Bold" Click="BtnProducts_Click"/>
                     </StackPanel>
                     
                     <Label Content="Количество"/>
@@ -80,7 +79,7 @@
         </StackPanel>
 
         <ComboBox x:Name="CBtheme" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" SelectionChanged="CBtheme_SelectionChanged">
-            <ComboBoxItem Content="Светлая" IsSelected="True"/>
+            <ComboBoxItem Content="Светлая"/>
             <ComboBoxItem Content="Темная"/>
         </ComboBox>
     </Grid>

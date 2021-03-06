@@ -1,0 +1,43 @@
+﻿<Window x:Class="Warehouse.Clients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Warehouse"
+        mc:Ignorable="d"
+        Title="Clients" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="181*"/>
+            <ColumnDefinition Width="83*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="DG_Orders" AutoGenerateColumns="False" Grid.Column="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding fio}"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding address}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding number}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Column="1">
+            <Label Content="ФИО"/>
+            <TextBox x:Name="TBclientFio"/>
+            <Label Content="Адрес"/>
+            <TextBox x:Name="TBclientAddress"/>
+            <Label Content="Номер"/>
+            <TextBox x:Name="TBclientNumber"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
+                <Button x:Name="BtnAdd" Content="Добавить" Width="80"/>
+                <Button x:Name="BtnEdit" Content="Изменить" Width="80"/>
+                <Button x:Name="BtnDelete" Content="Удалить" Width="80"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ComboBox x:Name="CBtheme" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" SelectionChanged="CBtheme_SelectionChanged">
+            <ComboBoxItem Content="Светлая"/>
+            <ComboBoxItem Content="Темная"/>
+        </ComboBox>
+    </Grid>
+</Window>
