@@ -3,19 +3,99 @@
                     xmlns:local="clr-namespace:Warehouse">
 
     <Style TargetType="Label">
+        <Setter Property="FontFamily" Value="Verdana"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="Gray"/>
     </Style>
 
     <Style TargetType="TextBox">
-        <Setter Property="Background" Value="Gray"/>
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <SolidColorBrush Color="White" Opacity="0.2"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+
+    <Style TargetType="Expander">
+        <Setter Property="FontFamily" Value="Verdana"/>
         <Setter Property="Foreground" Value="White"/>
     </Style>
-    
+
+    <Style TargetType="Button">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush">
+            <Setter.Value>
+                <SolidColorBrush Color="White" Opacity="0.2"/>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="DataGridRow">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    <Style TargetType="DataGridRowHeader">
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="DataGridColumnHeader">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="5"/>
+    </Style>
+    <Style TargetType="DataGrid">
+        <Setter Property="FontFamily" Value="Verdana"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush" Value="{x:Null}"/>
+    </Style>
+
     <Style TargetType="Window">
-        <Setter Property="Background" Value="Gray"/>
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF2C2B36" Offset="0"/>
+                    <GradientStop Color="#FF1A1A1D" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
     </Style>
     <Style TargetType="local:Login" BasedOn="{StaticResource {x:Type Window}}"/>
     <Style TargetType="local:Registration" BasedOn="{StaticResource {x:Type Window}}"/>
+    <Style TargetType="local:MainWindow" BasedOn="{StaticResource {x:Type Window}}"/>
+    <Style TargetType="local:Clients" BasedOn="{StaticResource {x:Type Window}}"/>
+    <Style TargetType="local:Products" BasedOn="{StaticResource {x:Type Window}}"/>
 
 </ResourceDictionary>

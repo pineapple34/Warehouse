@@ -37,10 +37,5 @@
                 <Button x:Name="BtnDelete" Content="Удалить" Width="80"/>
             </StackPanel>
         </StackPanel>
-
-        <ComboBox x:Name="CBtheme" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" SelectionChanged="CBtheme_SelectionChanged">
-            <ComboBoxItem Content="Светлая"/>
-            <ComboBoxItem Content="Темная"/>
-        </ComboBox>
     </Grid>
 </Window>

@@ -11,7 +11,7 @@
             <ColumnDefinition Width="181*"/>
             <ColumnDefinition Width="83*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="DG_Orders" AutoGenerateColumns="False" Grid.Column="0">
+        <DataGrid x:Name="DG_Clients" AutoGenerateColumns="False" Grid.Column="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding id}"/>
                 <DataGridTextColumn Header="ФИО" Binding="{Binding fio}"/>
@@ -28,16 +28,16 @@
             <Label Content="Номер"/>
             <TextBox x:Name="TBclientNumber"/>
 
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="Collapsed">
+                <Button x:Name="BtnOK" Content="ОК" Width="80" Click="BtnOK_Click"/>
+                <Button x:Name="BtnCancel" Content="Отмена" Width="80" Click="BtnCancel_Click"/>
+            </StackPanel>
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
-                <Button x:Name="BtnAdd" Content="Добавить" Width="80"/>
-                <Button x:Name="BtnEdit" Content="Изменить" Width="80"/>
-                <Button x:Name="BtnDelete" Content="Удалить" Width="80"/>
+                <Button x:Name="BtnAdd" Content="Добавить" Width="80" Click="BtnAdd_Click"/>
+                <Button x:Name="BtnEdit" Content="Изменить" Width="80" Click="BtnEdit_Click"/>
+                <Button x:Name="BtnDelete" Content="Удалить" Width="80" Click="BtnDelete_Click"/>
             </StackPanel>
         </StackPanel>
-
-        <ComboBox x:Name="CBtheme" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" SelectionChanged="CBtheme_SelectionChanged">
-            <ComboBoxItem Content="Светлая"/>
-            <ComboBoxItem Content="Темная"/>
-        </ComboBox>
     </Grid>
 </Window>

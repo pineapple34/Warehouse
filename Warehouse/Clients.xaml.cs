@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.Linq;
+using Warehouse.Classes;
 
 namespace Warehouse
 {
@@ -19,35 +21,55 @@ namespace Warehouse
     /// </summary>
     public partial class Clients : Window
     {
+        DataContext db = new DataContext(Properties.Settings.Default.conn);
+
         public Clients()
         {
             InitializeComponent();
         }
 
-        private void CBtheme_SelectionChanged(object sender, SelectionChangedEventArgs e) //выбор темы
+        private void BtnAdd_Click(object sender, RoutedEventArgs e) //добавление клиента
         {
-            if (CBtheme.SelectedIndex == 1)
+            if (TBclientFio.Text != "" && TBclientAddress.Text != "" && TBclientNumber.Text != "")
             {
-                // определяем путь к файлу ресурсов
-                var uri = new Uri("Themes/DarkTheme.xaml", UriKind.Relative);
-                // загружаем словарь ресурсов
-                ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
-                // очищаем коллекцию ресурсов приложения
-                Application.Current.Resources.Clear();
-                // добавляем загруженный словарь ресурсов
-                Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+                Table<Client> clients = db.GetTable<Client>();
+                Client client = new Client { fio = TBclientFio.Text, address = TBclientAddress.Text, number = TBclientNumber.Text, status = 1 };
+
+                clients.InsertOnSubmit(client);
+                db.SubmitChanges();
             }
-            else
+            else MessageBox.Show("Введите данные о клиенте");
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e) //изменение данных клиента
+        {
+            try
             {
-                // определяем путь к файлу ресурсов
-                var uri = new Uri("Themes/LightTheme.xaml", UriKind.Relative);
-                // загружаем словарь ресурсов
-                ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
-                // очищаем коллекцию ресурсов приложения
-                Application.Current.Resources.Clear();
-                // добавляем загруженный словарь ресурсов
-                Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+                Client client = (Client)DG_Clients.SelectedItem;
+
+                TBclientFio.Text = client.fio;
+                TBclientAddress.Text = client.address;
+                TBclientNumber.Text = client.number;
             }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnOK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

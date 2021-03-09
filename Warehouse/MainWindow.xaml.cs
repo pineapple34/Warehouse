@@ -30,32 +30,6 @@ namespace Warehouse
             updateGridOrders();
         }
 
-        private void CBtheme_SelectionChanged(object sender, SelectionChangedEventArgs e) //выбор темы
-        {
-            if (CBtheme.SelectedIndex == 1)
-            {
-                // определяем путь к файлу ресурсов
-                var uri = new Uri("Themes/DarkTheme.xaml", UriKind.Relative);
-                // загружаем словарь ресурсов
-                ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
-                // очищаем коллекцию ресурсов приложения
-                Application.Current.Resources.Clear();
-                // добавляем загруженный словарь ресурсов
-                Application.Current.Resources.MergedDictionaries.Add(resourceDict);
-            }
-            else
-            {
-                // определяем путь к файлу ресурсов
-                var uri = new Uri("Themes/LightTheme.xaml", UriKind.Relative);
-                // загружаем словарь ресурсов
-                ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
-                // очищаем коллекцию ресурсов приложения
-                Application.Current.Resources.Clear();
-                // добавляем загруженный словарь ресурсов
-                Application.Current.Resources.MergedDictionaries.Add(resourceDict);
-            }
-        }
-
         private void updateGridOrders() //получение таблицы заказов из базы
         {
             DG_Orders.ItemsSource = db.GetTable<OrdersView>();

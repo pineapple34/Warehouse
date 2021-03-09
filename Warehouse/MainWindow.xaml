@@ -34,31 +34,36 @@
         <StackPanel Grid.Column="1" Grid.RowSpan="2">
             <Expander Header="Действия над заказами">
                 <StackPanel>
-                    
+
                     <Label Content="Клиент"/>
                     <StackPanel Orientation="Horizontal">
                         <ComboBox x:Name="CBclient" Width="220"/>
                         <Button x:Name="BtnUsers" Content="..." Width="30" FontWeight="Bold" Click="BtnUsers_Click"/>
                     </StackPanel>
-                    
+
                     <Label Content="Продукт"/>
                     <StackPanel Orientation="Horizontal">
                         <ComboBox x:Name="CBproduct" Width="220"/>
                         <Button x:Name="BtnProducts" Content="..." Width="30" FontWeight="Bold" Click="BtnProducts_Click"/>
                     </StackPanel>
-                    
+
                     <Label Content="Количество"/>
                     <TextBox x:Name="TBquantity"/>
-                    
+
                     <Label Content="Дата"/>
                     <DatePicker x:Name="DPdate"/>
-                    
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5" Visibility="Collapsed">
+                        <Button x:Name="BtnOK" Content="ОК" Width="80"/>
+                        <Button x:Name="BtnCancel" Content="Отмена" Width="80"/>
+                    </StackPanel>
+
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,5">
                         <Button x:Name="BtnAdd" Content="Добавить" Width="80"/>
                         <Button x:Name="BtnEdit" Content="Изменить" Width="80"/>
                         <Button x:Name="BtnDelete" Content="Удалить" Width="80"/>
                     </StackPanel>
-                    
+
                 </StackPanel>
             </Expander>
 
@@ -77,10 +82,5 @@
                 </StackPanel>
             </Expander>
         </StackPanel>
-
-        <ComboBox x:Name="CBtheme" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="1" SelectionChanged="CBtheme_SelectionChanged">
-            <ComboBoxItem Content="Светлая"/>
-            <ComboBoxItem Content="Темная"/>
-        </ComboBox>
     </Grid>
 </Window>
