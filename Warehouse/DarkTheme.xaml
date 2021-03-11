@@ -5,7 +5,13 @@
     <Style TargetType="Label">
         <Setter Property="Foreground" Value="White"/>
     </Style>
+
+    <Style TargetType="Expander">
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
     
+
     <Style TargetType="DataGrid">
         <Setter Property="Background">
             <Setter.Value>
